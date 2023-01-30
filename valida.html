@@ -1,0 +1,30 @@
+<html>
+    <head><title>Password Checker</title>
+    </head>
+    <body>
+        <script>
+            function checking()
+            {
+                var r=document.getElementById("pass").value;
+                const regex=new RegExp(/([a-z][A-Z]{1}[0-9]{1}[!@#$%^&*_]{1}){6,16}/);
+                if(!r.match(/\S/))
+                {
+                    document.getElementById("message").innerHTML="";
+                }
+                else{
+                if(!regex.test(r))
+                {
+                    document.getElementById("message").style.color="red";
+                    document.getElementById("message").innerHTML="The password is too weak";
+                }
+                else{
+                    document.getElementById("message").style.color="green";
+                    document.getElementById("message").innerHTML="The password is strong";
+                }
+            }
+        }
+        </script>
+            Enter your current password<input type="text" id="pass" oninput="checking()" autofocus>
+            <p id="message"></p>
+    </body>
+</html>
